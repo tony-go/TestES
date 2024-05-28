@@ -11,7 +11,34 @@
 		96E041852C04CB66002F42EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041842C04CB66002F42EF /* ContentView.swift */; };
 		96E041872C04CB67002F42EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E041862C04CB67002F42EF /* Assets.xcassets */; };
 		96E0418A2C04CB67002F42EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E041892C04CB67002F42EF /* Preview Assets.xcassets */; };
+		96E041982C04CC4C002F42EF /* libEndpointSecurity.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E041972C04CC4C002F42EF /* libEndpointSecurity.tbd */; };
+		96E0419B2C04CC4C002F42EF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0419A2C04CC4C002F42EF /* main.swift */; };
+		96E041A02C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96E0419E2C04CC4C002F42EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96E041772C04CB66002F42EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96E041942C04CC4C002F42EF;
+			remoteInfo = Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96E041A42C04CC4C002F42EF /* Embed System Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				96E041A02C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension in Embed System Extensions */,
+			);
+			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		96E0417F2C04CB66002F42EF /* TestES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestES.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +47,11 @@
 		96E041862C04CB67002F42EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96E041892C04CB67002F42EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96E0418B2C04CB67002F42EF /* TestES.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestES.entitlements; sourceTree = "<group>"; };
+		96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = tonygo.TestES.Extension.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		96E041972C04CC4C002F42EF /* libEndpointSecurity.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libEndpointSecurity.tbd; path = usr/lib/libEndpointSecurity.tbd; sourceTree = SDKROOT; };
+		96E0419A2C04CC4C002F42EF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		96E0419C2C04CC4C002F42EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96E0419D2C04CC4C002F42EF /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +62,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96E041922C04CC4C002F42EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96E041982C04CC4C002F42EF /* libEndpointSecurity.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -37,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				96E041812C04CB66002F42EF /* TestES */,
+				96E041992C04CC4C002F42EF /* Extension */,
+				96E041962C04CC4C002F42EF /* Frameworks */,
 				96E041802C04CB66002F42EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				96E0417F2C04CB66002F42EF /* TestES.app */,
+				96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,6 +112,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		96E041962C04CC4C002F42EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96E041972C04CC4C002F42EF /* libEndpointSecurity.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96E041992C04CC4C002F42EF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				96E0419A2C04CC4C002F42EF /* main.swift */,
+				96E0419C2C04CC4C002F42EF /* Info.plist */,
+				96E0419D2C04CC4C002F42EF /* Extension.entitlements */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,15 +140,34 @@
 				96E0417B2C04CB66002F42EF /* Sources */,
 				96E0417C2C04CB66002F42EF /* Frameworks */,
 				96E0417D2C04CB66002F42EF /* Resources */,
+				96E041A42C04CC4C002F42EF /* Embed System Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				96E0419F2C04CC4C002F42EF /* PBXTargetDependency */,
 			);
 			name = TestES;
 			productName = TestES;
 			productReference = 96E0417F2C04CB66002F42EF /* TestES.app */;
 			productType = "com.apple.product-type.application";
+		};
+		96E041942C04CC4C002F42EF /* Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96E041A12C04CC4C002F42EF /* Build configuration list for PBXNativeTarget "Extension" */;
+			buildPhases = (
+				96E041912C04CC4C002F42EF /* Sources */,
+				96E041922C04CC4C002F42EF /* Frameworks */,
+				96E041932C04CC4C002F42EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Extension;
+			productName = Extension;
+			productReference = 96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */;
+			productType = "com.apple.product-type.system-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -100,6 +180,9 @@
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					96E0417E2C04CB66002F42EF = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					96E041942C04CC4C002F42EF = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
@@ -118,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				96E0417E2C04CB66002F42EF /* TestES */,
+				96E041942C04CC4C002F42EF /* Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -129,6 +213,13 @@
 			files = (
 				96E0418A2C04CB67002F42EF /* Preview Assets.xcassets in Resources */,
 				96E041872C04CB67002F42EF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96E041932C04CC4C002F42EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +235,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96E041912C04CC4C002F42EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96E0419B2C04CC4C002F42EF /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96E0419F2C04CC4C002F42EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96E041942C04CC4C002F42EF /* Extension */;
+			targetProxy = 96E0419E2C04CC4C002F42EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		96E0418C2C04CB67002F42EF /* Debug */ = {
@@ -268,6 +375,7 @@
 		96E0418F2C04CB67002F42EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TestES/TestES.entitlements;
@@ -298,6 +406,7 @@
 		96E041902C04CB67002F42EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TestES/TestES.entitlements;
@@ -325,6 +434,62 @@
 			};
 			name = Release;
 		};
+		96E041A22C04CC4C002F42EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Extension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tonygo.TestES.Extension;
+				PRODUCT_NAME = "$(inherited)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		96E041A32C04CC4C002F42EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Extension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tonygo.TestES.Extension;
+				PRODUCT_NAME = "$(inherited)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -342,6 +507,15 @@
 			buildConfigurations = (
 				96E0418F2C04CB67002F42EF /* Debug */,
 				96E041902C04CB67002F42EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96E041A12C04CC4C002F42EF /* Build configuration list for PBXNativeTarget "Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96E041A22C04CC4C002F42EF /* Debug */,
+				96E041A32C04CC4C002F42EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
