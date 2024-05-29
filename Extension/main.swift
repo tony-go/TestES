@@ -6,24 +6,28 @@
 //
 
 import Foundation
-import EndpointSecurity
 import OSLog
 
-extension Logger {
-    static let sysext = Logger(subsystem: "tonygo.TestES", category: "sysext")
+func extensionMachServiceName(from bundle: Bundle) -> String {
+    guard let networkExtensionKeys = bundle.object(forInfoDictionaryKey: "EndpointExtension") as? [String: Any],
+          let machServiceName = networkExtensionKeys["MachServiceName"] as? String else {
+        Logger.sysext.error("Mach service name is missing from the Info.plist")
+        return ""
+    }
+    return machServiceName
 }
 
-var client: OpaquePointer?
-
-// Create the client
-let res = es_new_client(&client) { (client, message) in
-    // Do processing on the message received
+autoreleasepool {
+    let serviceName = extensionMachServiceName(from: Bundle.main)
+    let delegate = IPCDelegate()
+    let listener = NSXPCListener(machServiceName: serviceName)
+    
+    Logger.sysext.debug("Resuming XPC Listener")
+    
+    listener.delegate = delegate
+    listener.resume()
+    
+    Logger.sysext.debug("Resumed")
 }
-
-if res != ES_NEW_CLIENT_RESULT_SUCCESS {
-    exit(EXIT_FAILURE)
-}
-
-Logger.sysext.error("HELL YEAH!")
 
 dispatchMain()

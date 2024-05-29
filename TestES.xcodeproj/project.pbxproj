@@ -14,6 +14,12 @@
 		96E041982C04CC4C002F42EF /* libEndpointSecurity.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E041972C04CC4C002F42EF /* libEndpointSecurity.tbd */; };
 		96E0419B2C04CC4C002F42EF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0419A2C04CC4C002F42EF /* main.swift */; };
 		96E041A02C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		96E041A62C062B6E002F42EF /* IPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041A52C062B6E002F42EF /* IPC.swift */; };
+		96E041A82C0632A6002F42EF /* IPCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041A72C0632A6002F42EF /* IPCClient.swift */; };
+		96E041AC2C06361C002F42EF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AB2C06361C002F42EF /* Logger.swift */; };
+		96E041AD2C06361C002F42EF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AB2C06361C002F42EF /* Logger.swift */; };
+		96E041AF2C064034002F42EF /* IPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AE2C064034002F42EF /* IPCServiceProtocol.swift */; };
+		96E041B02C064034002F42EF /* IPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AE2C064034002F42EF /* IPCServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,10 @@
 		96E0419A2C04CC4C002F42EF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		96E0419C2C04CC4C002F42EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E0419D2C04CC4C002F42EF /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
+		96E041A52C062B6E002F42EF /* IPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPC.swift; sourceTree = "<group>"; };
+		96E041A72C0632A6002F42EF /* IPCClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCClient.swift; sourceTree = "<group>"; };
+		96E041AB2C06361C002F42EF /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		96E041AE2C064034002F42EF /* IPCServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 		96E041762C04CB66002F42EF = {
 			isa = PBXGroup;
 			children = (
+				96E041AA2C06360E002F42EF /* Shared */,
 				96E041812C04CB66002F42EF /* TestES */,
 				96E041992C04CC4C002F42EF /* Extension */,
 				96E041962C04CC4C002F42EF /* Frameworks */,
@@ -100,6 +111,7 @@
 				96E041862C04CB67002F42EF /* Assets.xcassets */,
 				96E0418B2C04CB67002F42EF /* TestES.entitlements */,
 				96E041882C04CB67002F42EF /* Preview Content */,
+				96E041A72C0632A6002F42EF /* IPCClient.swift */,
 			);
 			path = TestES;
 			sourceTree = "<group>";
@@ -126,8 +138,18 @@
 				96E0419A2C04CC4C002F42EF /* main.swift */,
 				96E0419C2C04CC4C002F42EF /* Info.plist */,
 				96E0419D2C04CC4C002F42EF /* Extension.entitlements */,
+				96E041A52C062B6E002F42EF /* IPC.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		96E041AA2C06360E002F42EF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				96E041AB2C06361C002F42EF /* Logger.swift */,
+				96E041AE2C064034002F42EF /* IPCServiceProtocol.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +252,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E041AF2C064034002F42EF /* IPCServiceProtocol.swift in Sources */,
+				96E041AC2C06361C002F42EF /* Logger.swift in Sources */,
 				96E041852C04CB66002F42EF /* ContentView.swift in Sources */,
+				96E041A82C0632A6002F42EF /* IPCClient.swift in Sources */,
 				96E041832C04CB66002F42EF /* TestESApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E041A62C062B6E002F42EF /* IPC.swift in Sources */,
+				96E041AD2C06361C002F42EF /* Logger.swift in Sources */,
+				96E041B02C064034002F42EF /* IPCServiceProtocol.swift in Sources */,
 				96E0419B2C04CC4C002F42EF /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

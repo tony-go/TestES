@@ -11,13 +11,6 @@ import CoreData
 import SystemExtensions
 import OSLog
 
-extension Logger {
-    private static var subsystem = "tonygo.TestES"
-
-    static let installer = Logger(subsystem: subsystem, category: "installer")
-    static let app = Logger(subsystem: subsystem, category: "app")
-}
-
 enum InstallerStatus {
     case empty
     case await
@@ -27,16 +20,17 @@ enum InstallerStatus {
     case succeed
 }
 
-
 class InstallerStatusManager: ObservableObject {
     @Published var status: InstallerStatus = .empty
 }
 
 class SystemExtensionInstaller: NSObject, OSSystemExtensionRequestDelegate {
     @ObservedObject var statusManager: InstallerStatusManager
+    var connectionEstablished: (() -> Void)
     
-    init(statusManager: InstallerStatusManager) {
+    init(statusManager: InstallerStatusManager, connectionEstablished: @escaping () -> Void) {
         self.statusManager = statusManager
+        self.connectionEstablished = connectionEstablished
         super.init()
     }
     
@@ -54,6 +48,10 @@ class SystemExtensionInstaller: NSObject, OSSystemExtensionRequestDelegate {
     func request(_ request: OSSystemExtensionRequest, didFinishWithResult result: OSSystemExtensionRequest.Result) {
         Logger.installer.debug("SystemExtensionInstaller - didFinishWithResult: \(result.rawValue)");
         statusManager.status = .succeed
+        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: oneSecond, execute: {
+            self.connectionEstablished()
+        })
     }
     
     func request(_ request: OSSystemExtensionRequest, didFailWithError error: Error) {
@@ -65,6 +63,7 @@ class SystemExtensionInstaller: NSObject, OSSystemExtensionRequestDelegate {
 struct ContentView: View {
     @StateObject private var statusManager = InstallerStatusManager()
     @State private var inst: SystemExtensionInstaller?
+    @State private var ipcClient: IPCClient?
     
     var body: some View {
         VStack {
@@ -93,6 +92,7 @@ struct ContentView: View {
                 Text("Status: Succeed")
                     .foregroundColor(.green)
             }
+            
             Button(action: installExtension) {
                 Text("Install")
                     .padding()
@@ -100,12 +100,38 @@ struct ContentView: View {
                     .background(.green)
                     .cornerRadius(10)
             }.buttonStyle(.plain)
+            
+            Button(action: startESClient) {
+                Text("Start ES")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.orange)
+                    .cornerRadius(10)
+            }.buttonStyle(.plain)
+
+            
         }
         .onAppear {
             if inst == nil {
-                inst = SystemExtensionInstaller(statusManager: statusManager)
+                inst = SystemExtensionInstaller(statusManager: statusManager, connectionEstablished: {
+                    self.establishIPCConnection()
+                })
             }
         }
+    }
+    
+    private func establishIPCConnection() {
+        Logger.app.debug("Establishing IPC Client")
+        ipcClient = IPCClient()
+    }
+    
+    private func startESClient() {
+        guard let ipc = ipcClient else {
+            Logger.app.error("Imposible to start es client, ipc client is not ready")
+            return
+        }
+        
+        ipc.start()
     }
     
     private func installExtension() {

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+@objc protocol IPCServiceProtocol {
+    @objc func start() -> Void
+    @objc func stop() -> Void
+}

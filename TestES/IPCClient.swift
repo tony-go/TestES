@@ -6,3 +6,42 @@
 //
 
 import Foundation
+import OSLog
+
+protocol IPCClientProtocol {
+    func start() -> Void
+    func stop() -> Void
+}
+
+class IPCClient: IPCClientProtocol {
+    private let connection: NSXPCConnection
+    private let service: IPCServiceProtocol
+    
+    init() {
+        connection = NSXPCConnection(machServiceName: "tonygo.TestES-group.xpc")
+        connection.remoteObjectInterface = NSXPCInterface(with:
+                                                            IPCServiceProtocol.self)
+        connection.resume()
+        
+        service = connection.remoteObjectProxyWithErrorHandler { error in
+            Logger.app.error("Error during remote connection: \(error)")
+        } as! IPCServiceProtocol
+        
+        Logger.app.debug("Connection established")
+        
+    }
+    
+    deinit {
+        connection.invalidate()
+    }
+    
+    func start () {
+        Logger.app.debug("Call start")
+        service.start()
+    }
+    
+    func stop() {
+        service.stop()
+    }
+    
+}
