@@ -2,11 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>EndpointExtension</key>
-	<dict>
-		<key>MachServiceName</key>
-		<string>$(TeamIdentifierPrefix)tonygo.TestES-group.xpc</string>
-	</dict>
+    <key>NSEndpointSecurityMachServiceName</key>
+    <string>$(TeamIdentifierPrefix)tonygo.TestES-group.xpc</string>
 	<key>NSSystemExtensionUsageDescription</key>
 	<string></string>
 </dict>

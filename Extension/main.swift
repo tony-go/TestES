@@ -9,12 +9,12 @@ import Foundation
 import OSLog
 
 func extensionMachServiceName(from bundle: Bundle) -> String {
-    guard let networkExtensionKeys = bundle.object(forInfoDictionaryKey: "EndpointExtension") as? [String: Any],
-          let machServiceName = networkExtensionKeys["MachServiceName"] as? String else {
+    guard let machName = bundle.object(forInfoDictionaryKey: "NSEndpointSecurityMachServiceName") as? String else {
         Logger.sysext.error("Mach service name is missing from the Info.plist")
-        return ""
+       return ""
     }
-    return machServiceName
+    
+    return machName
 }
 
 autoreleasepool {
