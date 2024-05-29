@@ -5,7 +5,7 @@
 	<key>EndpointExtension</key>
 	<dict>
 		<key>MachServiceName</key>
-		<string>tonygo.TestES-group.xpc</string>
+		<string>$(TeamIdentifierPrefix)tonygo.TestES-group.xpc</string>
 	</dict>
 	<key>NSSystemExtensionUsageDescription</key>
 	<string></string>

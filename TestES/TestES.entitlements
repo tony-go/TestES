@@ -8,7 +8,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>tonygo.TestES-group</string>
+		<string>$(TeamIdentifierPrefix)tonygo.TestES-group</string>
 	</array>
 	<key>com.apple.security.automation.apple-events</key>
 	<true/>
