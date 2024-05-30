@@ -8,12 +8,7 @@
 import Foundation
 import OSLog
 
-protocol IPCClientProtocol {
-    func start() -> Void
-    func stop() -> Void
-}
-
-class IPCClient: IPCClientProtocol {
+class IPCClient: IPCServiceProtocol {
     private let connection: NSXPCConnection
     private let service: IPCServiceProtocol
     

@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import EndpointSecurity
 
 func extensionMachServiceName(from bundle: Bundle) -> String {
     guard let machName = bundle.object(forInfoDictionaryKey: "NSEndpointSecurityMachServiceName") as? String else {
@@ -18,6 +19,19 @@ func extensionMachServiceName(from bundle: Bundle) -> String {
 }
 
 autoreleasepool {
+    var client: OpaquePointer?
+    
+    Logger.sysext.debug("Starting ES client")
+    let res = es_new_client(&client) { (client, message) in
+        // Do processing on the message received
+    }
+    
+    if res != ES_NEW_CLIENT_RESULT_SUCCESS {
+        Logger.sysext.error("Did not succeed to open ES client")
+        exit(EXIT_FAILURE)
+    }
+    Logger.sysext.debug("ES client started!")
+    
     let serviceName = extensionMachServiceName(from: Bundle.main)
     let delegate = IPCDelegate()
     let listener = NSXPCListener(machServiceName: serviceName)

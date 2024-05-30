@@ -48,10 +48,10 @@ class SystemExtensionInstaller: NSObject, OSSystemExtensionRequestDelegate {
     func request(_ request: OSSystemExtensionRequest, didFinishWithResult result: OSSystemExtensionRequest.Result) {
         Logger.installer.debug("SystemExtensionInstaller - didFinishWithResult: \(result.rawValue)");
         statusManager.status = .succeed
-        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: oneSecond, execute: {
+//        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
+//        DispatchQueue.main.asyncAfter(deadline: oneSecond, execute: {
             self.connectionEstablished()
-        })
+//        })
     }
     
     func request(_ request: OSSystemExtensionRequest, didFailWithError error: Error) {
@@ -101,31 +101,39 @@ struct ContentView: View {
                     .cornerRadius(10)
             }.buttonStyle(.plain)
             
-            Button(action: startESClient) {
-                Text("Start ES")
+            Button(action: startIPC) {
+                Text("Start IPC")
                     .padding()
                     .foregroundColor(.white)
                     .background(.orange)
                     .cornerRadius(10)
             }.buttonStyle(.plain)
 
+            Button(action: ping) {
+                Text("Ping")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.blue)
+                    .cornerRadius(10)
+            }.buttonStyle(.plain)
+                .disabled(ipcClient == nil)
             
         }
         .onAppear {
             if inst == nil {
                 inst = SystemExtensionInstaller(statusManager: statusManager, connectionEstablished: {
-                    self.establishIPCConnection()
+                    
                 })
             }
         }
     }
     
-    private func establishIPCConnection() {
+    private func startIPC() {
         Logger.app.debug("Establishing IPC Client")
         ipcClient = IPCClient()
     }
     
-    private func startESClient() {
+    private func ping() {
         guard let ipc = ipcClient else {
             Logger.app.error("Imposible to start es client, ipc client is not ready")
             return
