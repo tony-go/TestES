@@ -16,6 +16,12 @@ class IPCClient: IPCServiceProtocol {
         connection = NSXPCConnection(machServiceName: "tonygo.TestES-group.xpc")
         connection.remoteObjectInterface = NSXPCInterface(with:
                                                             IPCServiceProtocol.self)
+        connection.interruptionHandler = {
+            Logger.app.error("Remote process crashed or exited!")
+        }
+        connection.invalidationHandler = {
+            Logger.app.error("Connection has not being established!")
+        }
         connection.resume()
         
         service = connection.remoteObjectProxyWithErrorHandler { error in
@@ -23,20 +29,14 @@ class IPCClient: IPCServiceProtocol {
         } as! IPCServiceProtocol
         
         Logger.app.debug("Connection established")
-        
     }
     
     deinit {
         connection.invalidate()
     }
     
-    func start () {
-        Logger.app.debug("Call start")
-        service.start()
+    @objc func ping () {
+        Logger.app.debug("Call ping")
+        service.ping()
     }
-    
-    func stop() {
-        service.stop()
-    }
-    
 }

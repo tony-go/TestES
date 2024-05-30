@@ -9,12 +9,8 @@ import Foundation
 import OSLog
 
 @objc class IPCService: NSObject, IPCServiceProtocol {
-    @objc func start() -> Void {
-        Logger.sysext.info("HELL YEAH!")
-    }
-    
-    @objc func stop() -> Void {
-        Logger.sysext.info("Client stoped!")
+    @objc func ping() -> Void {
+        Logger.sysext.info("Pong")
     }
 }
 

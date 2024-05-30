@@ -139,7 +139,7 @@ struct ContentView: View {
             return
         }
         
-        ipc.start()
+        ipc.ping()
     }
     
     private func installExtension() {
