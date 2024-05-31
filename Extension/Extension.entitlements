@@ -4,5 +4,7 @@
 <dict>
 	<key>com.apple.developer.endpoint-security.client</key>
 	<true/>
+    <key>com.apple.security.xpc.server</key>
+    <true/>
 </dict>
 </plist>
