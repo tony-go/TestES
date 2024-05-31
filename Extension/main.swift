@@ -9,10 +9,10 @@ import Foundation
 import OSLog
 import EndpointSecurity
 
-func extensionMachServiceName(from bundle: Bundle) -> String {
+func extensionMachServiceName(from bundle: Bundle) -> String? {
     guard let machName = bundle.object(forInfoDictionaryKey: "NSEndpointSecurityMachServiceName") as? String else {
         Logger.sysext.error("Mach service name is missing from the Info.plist")
-       return ""
+       return nil
     }
     
     return machName
@@ -32,7 +32,10 @@ autoreleasepool {
     }
     Logger.sysext.debug("ES client started!")
     
-    let serviceName = extensionMachServiceName(from: Bundle.main)
+    guard let serviceName = extensionMachServiceName(from: Bundle.main) else {
+        Logger.sysext.error("No service name in plist")
+        return
+    }
     let listener = NSXPCListener(machServiceName: serviceName)
     
     Logger.sysext.debug("Resuming XPC Listener")

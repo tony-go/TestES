@@ -20,6 +20,7 @@
 		96E041AD2C06361C002F42EF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AB2C06361C002F42EF /* Logger.swift */; };
 		96E041AF2C064034002F42EF /* IPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AE2C064034002F42EF /* IPCServiceProtocol.swift */; };
 		96E041B02C064034002F42EF /* IPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AE2C064034002F42EF /* IPCServiceProtocol.swift */; };
+		96E041B42C09CA1A002F42EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96E0419C2C04CC4C002F42EF /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E041B42C09CA1A002F42EF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

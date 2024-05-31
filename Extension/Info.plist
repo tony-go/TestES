@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>NSEndpointSecurityMachServiceName</key>
-    <string>$(TeamIdentifierPrefix)tonygo.TestES-group.xpc</string>
+    <string>tonygo.TestES.Extension</string>
 	<key>NSSystemExtensionUsageDescription</key>
-	<string></string>
+	<string>Explore sysex</string>
 </dict>
 </plist>

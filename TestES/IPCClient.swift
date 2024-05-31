@@ -13,7 +13,7 @@ class IPCClient: IPCServiceProtocol {
     private let service: IPCServiceProtocol
     
     init() {
-        connection = NSXPCConnection(machServiceName: "tonygo.TestES-group.xpc")
+        connection = NSXPCConnection(serviceName: "tonygo.TestES.Extension")
         connection.remoteObjectInterface = NSXPCInterface(with:
                                                             IPCServiceProtocol.self)
         connection.interruptionHandler = {
