@@ -33,12 +33,13 @@ autoreleasepool {
     Logger.sysext.debug("ES client started!")
     
     let serviceName = extensionMachServiceName(from: Bundle.main)
-    let delegate = IPCDelegate()
     let listener = NSXPCListener(machServiceName: serviceName)
     
     Logger.sysext.debug("Resuming XPC Listener")
     
+    let delegate = IPCDelegate()
     listener.delegate = delegate
+
     listener.resume()
     
     Logger.sysext.debug("Resumed")
