@@ -145,7 +145,7 @@ struct ContentView: View {
     private func installExtension() {
         Logger.app.debug("SystemExtensionInstaller - Install extension...")
         
-        let networkExtensionIdentifier = "tonygo.TestES.Extension"
+        let networkExtensionIdentifier = "com.tonygo.TestES.Extension"
         let request = OSSystemExtensionRequest.activationRequest(
             forExtensionWithIdentifier: networkExtensionIdentifier,
             queue: DispatchQueue.main

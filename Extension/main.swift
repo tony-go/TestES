@@ -42,7 +42,6 @@ autoreleasepool {
     
     let delegate = IPCDelegate()
     listener.delegate = delegate
-
     listener.resume()
     
     Logger.sysext.debug("Resumed")

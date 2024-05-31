@@ -8,23 +8,19 @@
 import Foundation
 import OSLog
 
-@objc class IPCService: NSObject, IPCServiceProtocol {
-    @objc func ping() -> Void {
-        Logger.sysext.info("Pong")
-    }
-}
-
-class IPCDelegate: NSObject, NSXPCListenerDelegate {
+class IPCDelegate: NSObject, NSXPCListenerDelegate, IPCServiceProtocol {
     func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
         Logger.sysext.debug("Incoming connection")
         newConnection.exportedInterface = NSXPCInterface(with: IPCServiceProtocol.self)
-        
-        let ipcService = IPCService()
-        newConnection.exportedObject = ipcService
+        newConnection.exportedObject = self
         
         newConnection.resume()
         Logger.sysext.debug("Connection resumed")
        
         return true
+    }
+    
+    @objc func ping() -> Void {
+        Logger.sysext.info("Pong")
     }
 }

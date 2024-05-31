@@ -13,7 +13,7 @@ class IPCClient: IPCServiceProtocol {
     private let service: IPCServiceProtocol
     
     init() {
-        connection = NSXPCConnection(serviceName: "tonygo.TestES.Extension")
+        connection = NSXPCConnection(machServiceName: "com.tonygo.TestES.Extension")
         connection.remoteObjectInterface = NSXPCInterface(with:
                                                             IPCServiceProtocol.self)
         connection.interruptionHandler = {
@@ -32,6 +32,7 @@ class IPCClient: IPCServiceProtocol {
     }
     
     deinit {
+        Logger.app.warning("Connection will be invalitaded")
         connection.invalidate()
     }
     

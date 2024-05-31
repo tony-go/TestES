@@ -13,7 +13,7 @@
 		96E0418A2C04CB67002F42EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E041892C04CB67002F42EF /* Preview Assets.xcassets */; };
 		96E041982C04CC4C002F42EF /* libEndpointSecurity.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E041972C04CC4C002F42EF /* libEndpointSecurity.tbd */; };
 		96E0419B2C04CC4C002F42EF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0419A2C04CC4C002F42EF /* main.swift */; };
-		96E041A02C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		96E041A02C04CC4C002F42EF /* com.tonygo.TestES.Extension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 96E041952C04CC4C002F42EF /* com.tonygo.TestES.Extension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		96E041A62C062B6E002F42EF /* IPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041A52C062B6E002F42EF /* IPC.swift */; };
 		96E041A82C0632A6002F42EF /* IPCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041A72C0632A6002F42EF /* IPCClient.swift */; };
 		96E041AC2C06361C002F42EF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E041AB2C06361C002F42EF /* Logger.swift */; };
@@ -40,7 +40,7 @@
 			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				96E041A02C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension in Embed System Extensions */,
+				96E041A02C04CC4C002F42EF /* com.tonygo.TestES.Extension.systemextension in Embed System Extensions */,
 			);
 			name = "Embed System Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +54,7 @@
 		96E041862C04CB67002F42EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96E041892C04CB67002F42EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96E0418B2C04CB67002F42EF /* TestES.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestES.entitlements; sourceTree = "<group>"; };
-		96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = tonygo.TestES.Extension.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		96E041952C04CC4C002F42EF /* com.tonygo.TestES.Extension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = com.tonygo.TestES.Extension.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E041972C04CC4C002F42EF /* libEndpointSecurity.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libEndpointSecurity.tbd; path = usr/lib/libEndpointSecurity.tbd; sourceTree = SDKROOT; };
 		96E0419A2C04CC4C002F42EF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		96E0419C2C04CC4C002F42EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				96E0417F2C04CB66002F42EF /* TestES.app */,
-				96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */,
+				96E041952C04CC4C002F42EF /* com.tonygo.TestES.Extension.systemextension */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 			);
 			name = Extension;
 			productName = Extension;
-			productReference = 96E041952C04CC4C002F42EF /* tonygo.TestES.Extension.systemextension */;
+			productReference = 96E041952C04CC4C002F42EF /* com.tonygo.TestES.Extension.systemextension */;
 			productType = "com.apple.product-type.system-extension";
 		};
 /* End PBXNativeTarget section */
@@ -425,7 +425,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tonygo.TestES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonygo.TestES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -456,7 +456,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tonygo.TestES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonygo.TestES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -478,13 +478,14 @@
 				INFOPLIST_FILE = Extension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Extension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "Explore sysex";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tonygo.TestES.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonygo.TestES.Extension;
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -506,13 +507,14 @@
 				INFOPLIST_FILE = Extension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Extension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "Explore sysex";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tonygo.TestES.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonygo.TestES.Extension;
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
